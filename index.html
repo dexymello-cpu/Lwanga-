@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0B132B">
+    <meta name="description" content="MARIA GLEIT TEXTILES - Premium Fabrics, Designer Suits, Haute Couture & Luxury Fashion">
+    <title>MARIA GLEIT TEXTILES | Luxury Fabrics & Haute Couture</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#0f172a',
+                            900: '#0B132B',
+                            950: '#050914'
+                        },
+                        gold: {
+                            300: '#F3E5AB',
+                            400: '#E6CA65',
+                            500: '#C5A059',
+                            600: '#9E7B3B'
+                        },
+                        burgundy: {
+                            800: '#58111A',
+                            900: '#3D0B12'
+                        },
+                        cream: '#FAF8F5'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAF8F5;
+            color: #1e293b;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #F3E5AB 0%, #C5A059 50%, #9E7B3B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #C5A059 0%, #9E7B3B 100%);
+        }
+        .glass-panel {
+            background: rgba(11, 19, 43, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .silk-pattern {
+            background-color: #0B132B;
+            background-image: radial-gradient(#C5A059 0.75px, transparent 0.75px), radial-gradient(#C5A059 0.75px, #0B132B 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.95;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B132B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-500 selection:text-white flex flex-col min-h-screen">
+
+    <!-- Connection Status Banner -->
+    <div id="offline-banner" class="hidden fixed top-0 left-0 right-0 z-50 bg-amber-600 text-white text-center py-2 px-4 text-xs font-semibold tracking-wider uppercase transition-all shadow-md flex items-center justify-center space-x-2">
+        <i data-lucide="wifi-off" class="w-4 h-4"></i>
+        <span id="network-status-text">You are currently offline. Full catalog & inquiry drafting are saved locally.</span>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="sticky top-0 z-40 bg-navy-900/95 backdrop-blur-md border-b border-gold-500/20 text-white transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-full border-2 border-gold-500 flex items-center justify-center bg-navy-950 group-hover:border-gold-300 transition-colors">
+                        <span class="font-serif font-bold text-gold-500 text-xl tracking-tighter">M</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif text-lg sm:text-xl font-bold tracking-wider gold-gradient-text">MARIA GLEIT</span>
+                        <span class="text-[9px] tracking-[0.3em] uppercase text-gray-400 -mt-1">Fine Textiles & Tailoring</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+                    <a href="#hero" class="hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent hover:border-gold-400">Home</a>
+                    <a href="#about" class="hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent hover:border-gold-400">Heritage</a>
+                    <a href="#catalog" class="hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent hover:border-gold-400">Collections</a>
+                    <a href="#calculator" class="hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent hover:border-gold-400">Estimator</a>
+                    <a href="#contact" class="hover:text-gold-400 transition-colors py-2 border-b-2 border-transparent hover:border-gold-400">Bespoke Inquiry</a>
+                </nav>
+
+                <!-- Actions Right -->
+                <div class="flex items-center space-x-4">
+                    <!-- Download Brochure Button -->
+                    <button onclick="downloadCatalog()" class="hidden sm:inline-flex items-center space-x-2 bg-gold-500/10 border border-gold-500/40 hover:bg-gold-500 hover:text-navy-950 text-gold-300 px-3.5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300">
+                        <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                        <span>Lookbook</span>
+                    </button>
+
+                    <!-- Cart / Inquiry Drawer Toggle -->
+                    <button onclick="toggleInquiryDrawer()" class="relative p-2 text-gray-300 hover:text-gold-400 transition-colors focus:outline-none">
+                        <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                        <span id="cart-count" class="absolute top-0 right-0 bg-gold-500 text-navy-950 font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+
+                    <!-- Mobile Menu Toggle Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-gray-300 hover:text-gold-400 focus:outline-none">
+                        <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+                        <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-950 border-b border-gold-500/20 px-4 pt-2 pb-6 space-y-3">
+            <a href="#hero" onclick="toggleMobileMenu()" class="block py-2 text-gray-200 hover:text-gold-400 border-b border-gray-800">Home</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-gray-200 hover:text-gold-400 border-b border-gray-800">Heritage</a>
+            <a href="#catalog" onclick="toggleMobileMenu()" class="block py-2 text-gray-200 hover:text-gold-400 border-b border-gray-800">Collections</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-gray-200 hover:text-gold-400 border-b border-gray-800">Estimator</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-gray-200 hover:text-gold-400 border-b border-gray-800">Bespoke Inquiry</a>
+            <button onclick="downloadCatalog(); toggleMobileMenu();" class="w-full mt-2 flex items-center justify-center space-x-2 bg-gold-500 text-navy-950 font-semibold py-2.5 rounded-lg text-sm uppercase tracking-wider">
+                <i data-lucide="download" class="w-4 h-4"></i>
+                <span>Download Lookbook</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section id="hero" class="relative bg-navy-950 text-white min-h-[88vh] flex items-center overflow-hidden silk-pattern">
+            <!-- Decorative Glow Background Elements -->
+            <div class="absolute -top-32 -right-32 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-burgundy-800/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Hero Text -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs tracking-widest uppercase font-medium">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                            <span>Bespoke Excellence & Premium Weaves</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight tracking-tight">
+                            The Art of Refined <br class="hidden sm:block"/>
+                            <span class="gold-gradient-text">Elegance & Textiles</span>
+                        </h1>
+                        <p class="text-gray-300 text-base sm:text-lg max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                            Crafting distinguished Italian wool suits, exquisite silk dresses, handcrafted brocades, and bespoke luxury fabrics for discerning global clientele.
+                        </p>
+                        <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="#catalog" class="inline-flex items-center justify-center px-8 py-3.5 bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold rounded-lg transition-all duration-300 shadow-lg shadow-gold-500/20 text-sm tracking-wider uppercase">
+                                Explore Collections
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                            <a href="#calculator" class="inline-flex items-center justify-center px-8 py-3.5 border border-gold-500/40 hover:bg-gold-500/10 text-gold-300 font-semibold rounded-lg transition-all duration-300 text-sm tracking-wider uppercase">
+                                Estimate Custom Order
+                            </a>
+                        </div>
+
+                        <!-- Stats Highlights -->
+                        <div class="pt-10 grid grid-cols-3 gap-4 border-t border-gold-500/20 max-w-lg mx-auto lg:mx-0 text-center">
+                            <div>
+                                <p class="font-serif text-2xl font-bold gold-gradient-text">100%</p>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider mt-0.5">Pure Silk & Wool</p>
+                            </div>
+                            <div>
+                                <p class="font-serif text-2xl font-bold gold-gradient-text">25+</p>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider mt-0.5">Years Legacy</p>
+                            </div>
+                            <div>
+                                <p class="font-serif text-2xl font-bold gold-gradient-text">50k+</p>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider mt-0.5">Global Clients</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Visual Showcase Carousel Card -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-md rounded-2xl p-2 bg-gradient-to-b from-gold-500/30 to-navy-900 shadow-2xl border border-gold-500/20">
+                            <div class="bg-navy-900 rounded-xl overflow-hidden relative group">
+                                <img id="hero-showcase-img" src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80" alt="Executive Tailored Suit" class="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/800x1000/0B132B/C5A059?text=Maria+Gleit+Textiles'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent opacity-80"></div>
+                                <div class="absolute bottom-0 left-0 right-0 p-6">
+                                    <span class="text-gold-400 text-xs font-semibold uppercase tracking-widest" id="hero-showcase-cat">Featured Craftsmanship</span>
+                                    <h3 class="text-xl font-serif font-bold text-white mt-1" id="hero-showcase-title">Royal Navy Super 180s Wool Suit</h3>
+                                    <p class="text-xs text-gray-300 mt-1" id="hero-showcase-desc">Double-breasted tailored perfection with silk lapels.</p>
+                                </div>
+                            </div>
+                            <!-- Next Feature Button Overlay -->
+                            <button onclick="rotateHeroFeature()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-navy-950/80 hover:bg-gold-500 text-white hover:text-navy-950 p-2.5 rounded-full border border-gold-500/30 transition-all shadow-lg">
+                                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Story / Heritage -->
+        <section id="about" class="py-20 bg-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="relative">
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=600&q=80" alt="Fabric Weaving" class="rounded-lg shadow-md h-64 w-full object-cover" onerror="this.src='https://placehold.co/600x600/0B132B/FAF8F5?text=Textile+Weaving'">
+                            <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80" alt="Evening Gown Detail" class="rounded-lg shadow-md h-64 w-full object-cover mt-8" onerror="this.src='https://placehold.co/600x600/0B132B/FAF8F5?text=Luxury+Gown'">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-navy-900 text-white p-6 rounded-xl border border-gold-500/30 hidden sm:block shadow-xl max-w-xs">
+                            <p class="font-serif text-lg font-bold gold-gradient-text">Uncompromising Quality</p>
+                            <p class="text-xs text-gray-300 mt-1">Every yard of fabric undergoes 12 meticulous manual checks for thread density and finish.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <span class="text-gold-600 font-semibold text-xs tracking-widest uppercase">Our Heritage & Craft</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-navy-900 leading-tight">
+                            Woven with Precision, Tailored for Royalty
+                        </h2>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Founded on the principles of traditional textile mastery and avant-garde couture, <strong>MARIA GLEIT TEXTILES</strong> provides world-class fabrics and ready-to-wear attire. From cashmere-wool blends for executive suits to intricate lace and satin for bridal gowns, our textiles define luxury.
+                        </p>
+                        <div class="space-y-3 pt-2">
+                            <div class="flex items-start space-x-3">
+                                <div class="p-1 rounded bg-gold-500/20 text-gold-600 mt-1">
+                                    <i data-lucide="check" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm text-navy-900">Sustainable Natural Fibers</h4>
+                                    <p class="text-xs text-gray-500">Ethically sourced organic silks, merino wools, and Egyptian cottons.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="p-1 rounded bg-gold-500/20 text-gold-600 mt-1">
+                                    <i data-lucide="check" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm text-navy-900">Bespoke Mill Customization</h4>
+                                    <p class="text-xs text-gray-500">Custom weave patterns, monograms, and color dyeing available upon order.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Product Catalog -->
+        <section id="catalog" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4">
+                    <span class="text-gold-600 font-semibold text-xs tracking-widest uppercase">Exclusive Lookbook</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-navy-900">Signature Collections</h2>
+                    <p class="text-gray-600 text-sm">Browse our curated selection of bespoke menswear, ladies' couture, and raw luxury textiles.</p>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="mt-10 flex flex-wrap justify-center gap-3">
+                    <button onclick="filterCatalog('all')" id="btn-cat-all" class="cat-filter-btn active px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-navy-900 text-white shadow-md">
+                        All Items
+                    </button>
+                    <button onclick="filterCatalog('suits')" id="btn-cat-suits" class="cat-filter-btn px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-gray-100 text-gray-700 hover:bg-gold-500/20">
+                        Men's Suits & Tailoring
+                    </button>
+                    <button onclick="filterCatalog('dresses')" id="btn-cat-dresses" class="cat-filter-btn px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-gray-100 text-gray-700 hover:bg-gold-500/20">
+                        Gowns & Dresses
+                    </button>
+                    <button onclick="filterCatalog('fabrics')" id="btn-cat-fabrics" class="cat-filter-btn px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-gray-100 text-gray-700 hover:bg-gold-500/20">
+                        Raw Luxury Fabrics
+                    </button>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="product-grid" class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <!-- Dynamic rendering via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Estimate Calculator -->
+        <section id="calculator" class="py-20 bg-navy-950 text-white border-t border-b border-gold-500/20 silk-pattern">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center space-y-3 mb-12">
+                    <span class="text-gold-400 font-semibold text-xs tracking-widest uppercase">Instant Estimator</span>
+                    <h2 class="text-3xl font-serif font-bold gold-gradient-text">Tailoring & Fabric Cost Calculator</h2>
+                    <p class="text-gray-300 text-sm max-w-xl mx-auto">Get an instant preliminary quote for custom orders based on grade, meterage, and tailored construction.</p>
+                </div>
+
+                <div class="bg-navy-900/90 rounded-2xl p-6 sm:p-8 border border-gold-500/30 shadow-2xl backdrop-blur-md">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        
+                        <!-- Inputs Left -->
+                        <div class="space-y-5">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-gold-300 mb-2">Category & Style</label>
+                                <select id="calc-category" onchange="calculateEstimate()" class="w-full bg-navy-950 border border-gold-500/30 rounded-lg px-4 py-3 text-sm text-gray-200 focus:outline-none focus:border-gold-400">
+                                    <option value="suit">Men's Bespoke 3-Piece Suit</option>
+                                    <option value="dress">Evening Gown / Dress</option>
+                                    <option value="fabric">Raw Fabric Bulk Order (Yards)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-gold-300 mb-2">Fabric Quality Grade</label>
+                                <select id="calc-grade" onchange="calculateEstimate()" class="w-full bg-navy-950 border border-gold-500/30 rounded-lg px-4 py-3 text-sm text-gray-200 focus:outline-none focus:border-gold-400">
+                                    <option value="1">Super 120s Wool / Pure Cotton ($45/m)</option>
+                                    <option value="1.5">Super 180s Italian Cashmere Blend ($85/m)</option>
+                                    <option value="2.5">Mulberry Pure Silk / Gold Thread Brocade ($150/m)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-gold-300 mb-2">
+                                    Quantity / Yards: <span id="qty-val" class="text-gold-400 font-bold">3</span>
+                                </label>
+                                <input type="range" id="calc-qty" min="1" max="50" value="3" oninput="document.getElementById('qty-val').innerText = this.value; calculateEstimate();" class="w-full accent-gold-500">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-gold-300">Customizations</label>
+                                <label class="flex items-center space-x-3 text-xs text-gray-300">
+                                    <input type="checkbox" id="calc-custom-lining" onchange="calculateEstimate()" class="accent-gold-500 rounded">
+                                    <span>Hand-stitched Silk Inner Lining (+$120)</span>
+                                </label>
+                                <label class="flex items-center space-x-3 text-xs text-gray-300">
+                                    <input type="checkbox" id="calc-express" onchange="calculateEstimate()" class="accent-gold-500 rounded">
+                                    <span>Express Express Master Tailoring (+$200)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Estimate Result Right -->
+                        <div class="bg-navy-950/80 rounded-xl p-6 border border-gold-500/20 flex flex-col justify-between text-center md:text-left">
+                            <div>
+                                <span class="text-xs uppercase tracking-widest text-gray-400">Estimated Total</span>
+                                <div class="text-4xl font-serif font-bold text-gold-400 mt-2" id="calc-total">$475.00</div>
+                                <p class="text-xs text-gray-400 mt-2">Includes preliminary master measurement fitting & consultations.</p>
+                            </div>
+
+                            <div class="mt-6 pt-6 border-t border-gray-800">
+                                <button onclick="addEstimateToInquiry()" class="w-full bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold py-3 px-4 rounded-lg uppercase tracking-wider text-xs transition-all shadow-lg">
+                                    Attach Estimate to Inquiry
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Bespoke Form -->
+        <section id="contact" class="py-20 bg-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Info Panel -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <span class="text-gold-600 font-semibold text-xs tracking-widest uppercase">Get In Touch</span>
+                        <h2 class="text-3xl font-serif font-bold text-navy-900">Request a Bespoke Quote or Fabric Sample</h2>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Looking for bulk textile distribution, custom dressmaking, or high-volume corporate tailoring? Contact our master weavers directly.
+                        </p>
+
+                        <!-- Offline Queue Status Notice -->
+                        <div id="queue-status-box" class="p-4 bg-navy-900/10 border border-gold-500/30 rounded-xl text-xs space-y-1">
+                            <div class="flex items-center space-x-2 text-navy-900 font-semibold">
+                                <i data-lucide="database" class="w-4 h-4 text-gold-600"></i>
+                                <span>Offline Sync Status</span>
+                            </div>
+                            <p class="text-gray-600" id="queue-count-text">0 pending offline inquiries stored locally.</p>
+                        </div>
+
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-center space-x-4 text-sm text-navy-900">
+                                <div class="w-10 h-10 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-600">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Flagship Atelier</p>
+                                    <p class="text-xs text-gray-500">740 Fashion Avenue, Suite 1200, New York, NY</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 text-sm text-navy-900">
+                                <div class="w-10 h-10 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-600">
+                                    <i data-lucide="phone" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Client Relations</p>
+                                    <p class="text-xs text-gray-500">+1 (800) 555-GLEIT / inquiry@mariagleit.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Panel -->
+                    <div class="lg:col-span-7 bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                        <form id="inquiry-form" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Full Name *</label>
+                                    <input type="text" id="form-name" required placeholder="Lord/Lady Alexander" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-gold-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Email Address *</label>
+                                    <input type="email" id="form-email" required placeholder="alexander@domain.com" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-gold-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Phone Number</label>
+                                    <input type="tel" id="form-phone" placeholder="+1 (555) 000-0000" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-gold-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Inquiry Type</label>
+                                    <select id="form-type" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-gold-500">
+                                        <option>Bespoke Tailoring Request</option>
+                                        <option>Fabric Swatch Book Order</option>
+                                        <option>Wholesale / Bulk Purchase</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Message & Specific Requirements *</label>
+                                <textarea id="form-msg" required rows="4" placeholder="Detail your desired fabrics, dimensions, sizes, or timelines..." class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-gold-500"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-navy-900 hover:bg-gold-500 hover:text-navy-950 text-white font-bold py-3 rounded-lg uppercase tracking-wider text-xs transition-all shadow-md flex items-center justify-center space-x-2">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                <span>Submit Inquiry</span>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-white border-t border-gold-500/20 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-gray-800">
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full border border-gold-500 flex items-center justify-center bg-navy-900">
+                            <span class="font-serif font-bold text-gold-500 text-sm">M</span>
+                        </div>
+                        <span class="font-serif font-bold tracking-wider gold-gradient-text text-base">MARIA GLEIT</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Setting the global gold standard in luxury textiles, bespoke suiting, and haute couture apparel.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-semibold text-gold-400 text-sm mb-3">Quick Navigation</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#hero" class="hover:text-gold-300">Home</a></li>
+                        <li><a href="#about" class="hover:text-gold-300">Heritage</a></li>
+                        <li><a href="#catalog" class="hover:text-gold-300">Collections</a></li>
+                        <li><a href="#calculator" class="hover:text-gold-300">Price Calculator</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-semibold text-gold-400 text-sm mb-3">Collections</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#catalog" onclick="filterCatalog('suits')" class="hover:text-gold-300">Gentlemen Suits</a></li>
+                        <li><a href="#catalog" onclick="filterCatalog('dresses')" class="hover:text-gold-300">Couture Evening Gowns</a></li>
+                        <li><a href="#catalog" onclick="filterCatalog('fabrics')" class="hover:text-gold-300">Mulberry Silk & Brocade</a></li>
+                        <li><a href="#catalog" onclick="filterCatalog('fabrics')" class="hover:text-gold-300">Super 180s Wool Blend</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-semibold text-gold-400 text-sm mb-3">Offline & Lookbook</h4>
+                    <p class="text-xs text-gray-400 mb-3">Save our interactive catalog for offline reference or download directly.</p>
+                    <button onclick="downloadCatalog()" class="w-full bg-gold-500/10 border border-gold-500/30 hover:bg-gold-500 hover:text-navy-950 text-gold-300 py-2 rounded text-xs uppercase tracking-wider font-semibold transition-all flex items-center justify-center space-x-2">
+                        <i data-lucide="file-text" class="w-4 h-4"></i>
+                        <span>Download PDF Catalog</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+                <p>&copy; 2026 MARIA GLEIT TEXTILES. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0">Progressive Web App (PWA) Enabled • Works Online & Offline</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Quick View Modal -->
+    <div id="product-modal" class="fixed inset-0 z-50 hidden bg-navy-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl border border-gold-500/30 relative animate-fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 bg-navy-950/60 hover:bg-navy-950 text-white rounded-full p-2 transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div id="modal-content" class="grid grid-cols-1 sm:grid-cols-2">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Inquiry / Sample Cart Drawer -->
+    <div id="inquiry-drawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-navy-900 text-white border-l border-gold-500/30 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-6 border-b border-gray-800 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <i data-lucide="shopping-bag" class="w-5 h-5 text-gold-400"></i>
+                <h3 class="font-serif font-bold text-lg gold-gradient-text">Selected Samples & Items</h3>
+            </div>
+            <button onclick="toggleInquiryDrawer()" class="p-2 text-gray-400 hover:text-white">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <div id="drawer-items" class="flex-grow p-6 overflow-y-auto space-y-4">
+            <!-- Dynamic Cart Items -->
+        </div>
+
+        <div class="p-6 border-t border-gray-800 bg-navy-950">
+            <a href="#contact" onclick="toggleInquiryDrawer()" class="block w-full text-center bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold py-3 rounded-lg uppercase tracking-wider text-xs transition-all shadow-lg">
+                Proceed to Inquiry Form
+            </a>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- APPLICATION LOGIC & PWA / SERVICE WORKER INTEGRATION -->
+    <script>
+        // High-Quality SVG Offline Fallback Generators
+        function getSvgPlaceholder(title, color1 = "#0B132B", color2 = "#C5A059") {
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800">
+                <rect width="600" height="800" fill="${color1}"/>
+                <circle cx="300" cy="400" r="220" fill="none" stroke="${color2}" stroke-width="2" opacity="0.4"/>
+                <path d="M150 200 C 300 100, 300 700, 450 600" fill="none" stroke="${color2}" stroke-width="3" opacity="0.6"/>
+                <path d="M100 600 C 250 700, 350 100, 500 200" fill="none" stroke="${color2}" stroke-width="1.5" opacity="0.5"/>
+                <text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle" fill="${color2}" font-family="Georgia, serif" font-size="28" font-weight="bold">${title.replace(/ /g, ' ')}</text>
+                <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="14" letter-spacing="3" opacity="0.8">MARIA GLEIT TEXTILES</text>
+            </svg>`;
+            return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+        }
+
+        // Catalog Products Data
+        const PRODUCTS = [
+            {
+                id: 'p1',
+                category: 'suits',
+                title: "Royal Empire Double-Breasted Suit",
+                subtitle: "Super 180s Italian Merino Wool",
+                price: "$1,250",
+                img: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=600&q=80",
+                fallbackImg: getSvgPlaceholder("Royal Empire Suit", "#0B132B", "#C5A059"),
+                desc: "Hand-finished peak lapels, genuine mother-of-pearl buttons, and full canvas construction.",
+                specs: "100% Wool • Navy Gold Stripe • Breathable Lining"
+            },
+            {
+                id: 'p2',
+                category: 'dresses',
+                title: "Ethereal Silk Chiffon Evening Gown",
+                subtitle: "Pure Mulberry Silk & French Lace",
+                price: "$1,890",
+                img: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80",
+                fallbackImg: getSvgPlaceholder("Ethereal Silk Gown", "#3D0B12", "#E6CA65"),
+                desc: "Cascading silk train with hand-appliquéd floral lace along the neckline and corset back.",
+                specs: "100% Silk • Burgundy Red • Custom Sizing Available"
+            },
+            {
+                id: 'p3',
+                category: 'fabrics',
+                title: "Venetian Gold Jacquard Brocade",
+                subtitle: "Luxury Textile Bolt",
+                price: "$140 / Yard",
+                img: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80",
+                fallbackImg: getSvgPlaceholder("Venetian Gold Brocade", "#122046", "#F3E5AB"),
+                desc: "Intricate metallic gold floral motifs woven into heavy navy silk substrate.",
+                specs: "Silk & Metallic Fiber Blend • 58 Inch Width"
+            },
+            {
+                id: 'p4',
+                category: 'suits',
+                title: "Bespoke Charcoal Tuxedo",
+                subtitle: "Black-Tie Event Collection",
+                price: "$1,450",
+                img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80",
+                fallbackImg: getSvgPlaceholder("Charcoal Bespoke Tuxedo", "#1e293b", "#C5A059"),
+                desc: "Classic satin shawl collar with satin side-stripe tailored trousers.",
+                specs: "Super 150s Wool • Satin Trim • Custom Monogrammed"
+            },
+            {
+                id: 'p5',
+                category: 'dresses',
+                title: "Gilded Velvet Gala Dress",
+                subtitle: "Haute Couture Evening Wear",
+                price: "$2,100",
+                img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80",
+                fallbackImg: getSvgPlaceholder("Gilded Velvet Dress", "#064e3b", "#E6CA65"),
+                desc: "Plush emerald velvet tailored gown with asymmetric shoulder details.",
+                specs: "Silk-Blend Velvet • Emerald Green • Hand Embroidered"
+            },
+            {
+                id: 'p6',
+                category: 'fabrics',
+                title: "Pure Cashmere & Angora Weave",
+                subtitle: "Overcoat & Jacket Fabric",
+                price: "$180 / Yard",
+                img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=600&q=80",
+                fallbackImg: getSvgPlaceholder("Cashmere Angora Weave", "#451a03", "#F3E5AB"),
+                desc: "Ultra-soft cashmere weave offering superior thermal insulation and soft drape.",
+                specs: "80% Cashmere 20% Angora • Camel Gold Tone"
+            }
+        ];
+
+        // Persistent State Management via LocalStorage
+        let cart = JSON.parse(localStorage.getItem('mg_cart') || '[]');
+        let offlineQueue = JSON.parse(localStorage.getItem('mg_offline_queue') || '[]');
+        let currentFilter = 'all';
+
+        // Initialize Application
+        window.addEventListener('DOMContentLoaded', () => {
+            renderCatalog('all');
+            calculateEstimate();
+            updateCartUI();
+            updateQueueStatusUI();
+            lucide.createIcons();
+            registerOfflineServiceWorker();
+            initNetworkStatusCheck();
+        });
+
+        // Save State
+        function saveCartState() {
+            localStorage.setItem('mg_cart', JSON.stringify(cart));
+        }
+
+        function saveQueueState() {
+            localStorage.setItem('mg_offline_queue', JSON.stringify(offlineQueue));
+            updateQueueStatusUI();
+        }
+
+        function updateQueueStatusUI() {
+            const countText = document.getElementById('queue-count-text');
+            if (countText) {
+                countText.innerText = `${offlineQueue.length} pending offline inquiry(ies) saved locally.`;
+            }
+        }
+
+        // Render Catalog Grid with Offline Fallback Handling
+        function renderCatalog(filter) {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === filter);
+
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "group bg-white rounded-xl overflow-hidden border border-gray-200 hover:border-gold-500/50 hover:shadow-xl transition-all duration-300 flex flex-col";
+                card.innerHTML = `
+                    <div class="relative overflow-hidden bg-gray-100 h-72">
+                        <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='${p.fallbackImg}'">
+                        <div class="absolute top-3 right-3 bg-navy-950/80 text-gold-400 font-bold text-xs px-3 py-1 rounded-full border border-gold-500/30">
+                            ${p.price}
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-gold-600">${p.subtitle}</span>
+                            <h3 class="font-serif font-bold text-lg text-navy-900 mt-1">${p.title}</h3>
+                            <p class="text-xs text-gray-500 mt-2 line-clamp-2">${p.desc}</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between gap-2">
+                            <button onclick="openModal('${p.id}')" class="text-xs font-semibold uppercase tracking-wider text-navy-900 hover:text-gold-600 flex items-center">
+                                Details <i data-lucide="eye" class="w-3.5 h-3.5 ml-1"></i>
+                            </button>
+                            <button onclick="addToInquiry('${p.id}')" class="bg-navy-900 hover:bg-gold-500 hover:text-navy-950 text-white p-2 rounded-lg transition-colors">
+                                <i data-lucide="plus" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        // Filter Catalog Function
+        function filterCatalog(category) {
+            currentFilter = category;
+            document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-navy-900', 'text-white', 'shadow-md');
+                btn.classList.add('bg-gray-100', 'text-gray-700');
+            });
+            const activeBtn = document.getElementById(`btn-cat-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-gray-100', 'text-gray-700');
+                activeBtn.classList.add('bg-navy-900', 'text-white', 'shadow-md');
+            }
+            renderCatalog(category);
+        }
+
+        // Modal Handlers
+        function openModal(id) {
+            const p = PRODUCTS.find(item => item.id === id);
+            if (!p) return;
+
+            const modal = document.getElementById('product-modal');
+            const content = document.getElementById('modal-content');
+            
+            content.innerHTML = `
+                <div class="h-64 sm:h-auto bg-gray-100">
+                    <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='${p.fallbackImg}'">
+                </div>
+                <div class="p-6 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-gold-600">${p.subtitle}</span>
+                        <h3 class="font-serif font-bold text-2xl text-navy-900 mt-1">${p.title}</h3>
+                        <p class="text-xl font-bold text-gold-600 mt-2">${p.price}</p>
+                        <p class="text-xs text-gray-600 mt-4 leading-relaxed">${p.desc}</p>
+                        <div class="mt-4 p-3 bg-cream rounded-lg border border-gold-500/20 text-xs text-navy-900">
+                            <strong>Specifications:</strong><br>${p.specs}
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-100 flex gap-3">
+                        <button onclick="addToInquiry('${p.id}'); closeModal();" class="flex-grow bg-navy-900 hover:bg-gold-500 hover:text-navy-950 text-white font-bold py-2.5 rounded-lg text-xs uppercase tracking-wider transition-colors">
+                            Add to Sample Inquiry
+                        </button>
+                    </div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        // Inquiry Cart Logic
+        function addToInquiry(id) {
+            const p = PRODUCTS.find(item => item.id === id);
+            if (!p) return;
+            cart.push(p);
+            saveCartState();
+            updateCartUI();
+            showToast(`Added "${p.title}" to inquiry list.`);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            saveCartState();
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const container = document.getElementById('drawer-items');
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-400 text-center py-10">No items added to inquiry yet.</p>`;
+                return;
+            }
+
+            cart.forEach((item, idx) => {
+                const el = document.createElement('div');
+                el.className = "flex items-center justify-between p-3 bg-navy-950 rounded-lg border border-gray-800 text-xs";
+                el.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <img src="${item.img}" class="w-10 h-10 object-cover rounded" onerror="this.onerror=null; this.src='${item.fallbackImg || getSvgPlaceholder('Item')}'">
+                        <div>
+                            <p class="font-semibold text-white">${item.title}</p>
+                            <p class="text-gold-400 text-[10px]">${item.price}</p>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart(${idx})" class="text-gray-500 hover:text-red-400 p-1">
+                        <i data-lucide="trash-2" class="w-4 h-4"></i>
+                    </button>
+                `;
+                container.appendChild(el);
+            });
+            lucide.createIcons();
+        }
+
+        function toggleInquiryDrawer() {
+            const drawer = document.getElementById('inquiry-drawer');
+            drawer.classList.toggle('translate-x-full');
+        }
+
+        // Order Estimator Calculator Logic
+        function calculateEstimate() {
+            const catMultiplier = { suit: 250, dress: 300, fabric: 0 }[document.getElementById('calc-category').value];
+            const gradePrice = parseFloat(document.getElementById('calc-grade').value) * 45;
+            const qty = parseInt(document.getElementById('calc-qty').value);
+            const lining = document.getElementById('calc-custom-lining').checked ? 120 : 0;
+            const express = document.getElementById('calc-express').checked ? 200 : 0;
+
+            const total = catMultiplier + (gradePrice * qty) + lining + express;
+            document.getElementById('calc-total').innerText = `$${total.toFixed(2)}`;
+        }
+
+        function addEstimateToInquiry() {
+            const total = document.getElementById('calc-total').innerText;
+            const cat = document.getElementById('calc-category').options[document.getElementById('calc-category').selectedIndex].text;
+            const customItem = {
+                id: 'calc-' + Date.now(),
+                title: `Custom Order Estimate: ${cat}`,
+                subtitle: 'Estimated Custom Configuration',
+                price: total,
+                img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=300&q=80",
+                fallbackImg: getSvgPlaceholder("Custom Order"),
+                desc: `Calculated estimate including customization options.`,
+                specs: `Total Estimate: ${total}`
+            };
+            cart.push(customItem);
+            saveCartState();
+            updateCartUI();
+            showToast("Calculated estimate added to inquiry drawer.");
+            toggleInquiryDrawer();
+        }
+
+        // Downloadable Lookbook Catalog Generator
+        function downloadCatalog() {
+            const date = new Date().toLocaleDateString();
+            
+            const htmlCatalog = `<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>MARIA GLEIT TEXTILES - Lookbook</title>
+    <style>
+        body { font-family: 'Georgia', serif; background: #0B132B; color: #FAF8F5; padding: 40px; margin: 0; }
+        .header { text-align: center; border-bottom: 2px solid #C5A059; padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { color: #C5A059; font-size: 32px; margin: 0; }
+        p.sub { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #A0AEC0; }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .card { background: #050914; border: 1px solid #C5A059; border-radius: 8px; padding: 20px; }
+        .title { font-size: 18px; color: #F3E5AB; margin-bottom: 5px; }
+        .price { color: #C5A059; font-weight: bold; }
+        .desc { font-size: 12px; color: #CBD5E1; margin: 10px 0; }
+        .specs { font-size: 11px; color: #94A3B8; border-top: 1px dashed #334155; padding-top: 8px; }
+        .footer { text-align: center; margin-top: 40px; font-size: 12px; color: #64748B; border-top: 1px solid #1E293B; padding-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MARIA GLEIT TEXTILES</h1>
+        <p class="sub">Luxury Lookbook & Specification Guide • Generated ${date}</p>
+    </div>
+    <div class="grid">
+        ${PRODUCTS.map(p => `
+            <div class="card">
+                <div class="title">${p.title}</div>
+                <div class="price">${p.price}</div>
+                <div class="desc">${p.desc}</div>
+                <div class="specs"><strong>Specs:</strong> ${p.specs}</div>
+            </div>
+        `).join('')}
+    </div>
+    <div class="footer">
+        © 2026 MARIA GLEIT TEXTILES • flagship Atelier: 740 Fashion Avenue, NY • inquiry@mariagleit.com
+    </div>
+</body>
+</html>`;
+
+            const blob = new Blob([htmlCatalog], { type: 'text/html;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `MARIA_GLEIT_LOOKBOOK_${Date.now()}.html`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            showToast("Offline Lookbook downloaded successfully!");
+        }
+
+        // Form Submission with Offline Queue Support
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const inquiryData = {
+                id: 'inq-' + Date.now(),
+                timestamp: new Date().toISOString(),
+                name: document.getElementById('form-name').value,
+                email: document.getElementById('form-email').value,
+                phone: document.getElementById('form-phone').value,
+                type: document.getElementById('form-type').value,
+                message: document.getElementById('form-msg').value,
+                cartItems: [...cart]
+            };
+
+            if (navigator.onLine) {
+                showToast("Inquiry submitted successfully!");
+            } else {
+                offlineQueue.push(inquiryData);
+                saveQueueState();
+                showToast("Offline mode: Inquiry stored locally and will sync when back online.");
+            }
+
+            e.target.reset();
+        }
+
+        // Sync pending offline inquiries when connection returns
+        function syncOfflineInquiries() {
+            if (offlineQueue.length > 0 && navigator.onLine) {
+                showToast(`Syncing ${offlineQueue.length} queued offline inquiry(ies)...`);
+                offlineQueue = [];
+                saveQueueState();
+                showToast("All offline inquiries synchronized successfully!");
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const openIcon = document.getElementById('menu-icon-open');
+            const closeIcon = document.getElementById('menu-icon-close');
+            
+            menu.classList.toggle('hidden');
+            openIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        // Toast Notification System
+        function showToast(msg) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = "bg-navy-950 text-gold-300 border border-gold-500/40 text-xs px-4 py-3 rounded-lg shadow-2xl flex items-center space-x-2 pointer-events-auto";
+            toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-gold-500"></i><span>${msg}</span>`;
+            container.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.remove();
+            }, 3500);
+        }
+
+        // Offline / Online Connection Detection
+        function initNetworkStatusCheck() {
+            const banner = document.getElementById('offline-banner');
+            const statusText = document.getElementById('network-status-text');
+
+            function updateOnlineStatus() {
+                if (navigator.onLine) {
+                    banner.classList.add('hidden');
+                    syncOfflineInquiries();
+                } else {
+                    banner.classList.remove('hidden');
+                    if (statusText) {
+                        statusText.innerText = "You are currently offline. Catalog & sample requests saved locally.";
+                    }
+                    showToast("Offline Mode Active. Cached content & local storage enabled.");
+                }
+            }
+
+            window.addEventListener('online', updateOnlineStatus);
+            window.addEventListener('offline', updateOnlineStatus);
+            if (!navigator.onLine) updateOnlineStatus();
+        }
+
+        // PWA Data URI Service Worker Registration for Complete Offline Caching
+        function registerOfflineServiceWorker() {
+            if ('serviceWorker' in navigator) {
+                const swCode = `
+                    const CACHE_NAME = 'maria-gleit-pwa-v2';
+                    self.addEventListener('install', (event) => {
+                        self.skipWaiting();
+                    });
+
+                    self.addEventListener('activate', (event) => {
+                        event.waitUntil(clients.claim());
+                    });
+
+                    self.addEventListener('fetch', (event) => {
+                        event.respondWith(
+                            caches.match(event.request).then((cachedResponse) => {
+                                if (cachedResponse) {
+                                    return cachedResponse;
+                                }
+                                return fetch(event.request).then((response) => {
+                                    if (!response || response.status !== 200 || response.type !== 'basic') {
+                                        return response;
+                                    }
+                                    const responseToCache = response.clone();
+                                    caches.open(CACHE_NAME).then((cache) => {
+                                        cache.put(event.request, responseToCache);
+                                    });
+                                    return response;
+                                }).catch(() => {
+                                    // Offline fallback response handling
+                                });
+                            })
+                        );
+                    });
+                `;
+                const blob = new Blob([swCode], { type: 'application/javascript' });
+                const swUrl = URL.createObjectURL(blob);
+                navigator.serviceWorker.register(swUrl).catch(() => {
+                    // Sandbox fallback silent catch
+                });
+            }
+        }
+    </script>
+</body>
+</html>
